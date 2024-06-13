@@ -1,0 +1,9 @@
+machine;code;capacity_per_day
+Machine 1;A;100
+Machine 1;B;100
+Machine 2;A;200
+Machine 3;B;150
+Machine 4;A;250
+Machine 4;B;250
+Machine 5;A;300
+Machine 5;B;300

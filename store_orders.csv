@@ -1,0 +1,9 @@
+store,order,day_delivery,code,quantity
+Store 1,Order 1,1,A,100
+Store 1,Order 2,2,A,100
+Store 2,Order 3,1,B,150
+Store 2,Order 4,2,B,150
+Store 3,Order 5,3,A,200
+Store 4,Order 6,4,B,250
+Store 5,Order 7,5,A,300
+Store 5,Order 8,15,B,350

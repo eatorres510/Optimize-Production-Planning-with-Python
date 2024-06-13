@@ -1,0 +1,4 @@
+resource;activity;capacity_per_day
+Human;Picking;100
+Human;Packing;150
+Lift Truck;Receiving;200
