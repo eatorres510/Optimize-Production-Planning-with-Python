@@ -2,17 +2,19 @@
 ## Production Planning and Delivery Optimization
 This project includes three main modules: factory, warehouse, and delivery, designed to optimize production planning, warehouse management, and delivery scheduling.
 ## Overview
-Factory Module
+#Factory Module
 Description: Simulates production planning using the Wagner-Whitin algorithm to balance setup and inventory costs.
 Main Script: factory.py
 Inputs: demand_forecasts.csv, machines.csv
 Outputs: production_plan.csv
-Warehouse Module
+
+#Warehouse Module
 Description: Manages receiving, picking/packing, and shipping activities within the warehouse.
 Main Script: warehouse.py
 Inputs: production_plan.csv, initial_inventory.csv, store_orders.csv
 Outputs: warehouse_inventory.csv, shipping.csv
-Delivery Module
+
+#Delivery Module
 Description: Optimizes delivery scheduling based on truck capacities and delivery requirements.
 Main Script: delivery.py
 Inputs: shipping.csv, trucks.csv
