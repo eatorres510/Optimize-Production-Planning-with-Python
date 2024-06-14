@@ -25,12 +25,12 @@ Place demand_forecasts.csv and machines.csv in the project directory.
 Run the factory script:
 python factory.py
 
-a. Production Capacity Analysis: Computes the total daily capacity for each machine.
-b. Performance Analysis: Measures the performance of each machine in terms of actual production versus production days.
-c. Quality Control: Assumes a 98% pass rate for quality checks on the produced items.
-d. Maintenance Schedule: Plans maintenance activities based on machine usage hours.
-e. Human-Machine Interface Status: Sets the operational status for the HMI.
-f. MOM Intelligence Analysis: Provides an efficiency summary for each production period.
+#a. Production Capacity Analysis: Computes the total daily capacity for each machine.
+#b. Performance Analysis: Measures the performance of each machine in terms of actual production versus production days.
+#c. Quality Control: Assumes a 98% pass rate for quality checks on the produced items.
+#d. Maintenance Schedule: Plans maintenance activities based on machine usage hours.
+#e. Human-Machine Interface Status: Sets the operational status for the HMI.
+#f. MOM Intelligence Analysis: Provides an efficiency summary for each production period.
 
 3. Warehouse Module
 Ensure production_plan.csv, initial_inventory.csv, and store_orders.csv are in the project directory.
