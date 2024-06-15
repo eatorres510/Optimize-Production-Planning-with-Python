@@ -1,5 +1,24 @@
 import pandas as pd
 
+def calculate_inventory_kpis(inventory):
+    # Inventory Accuracy
+    inventory['Inventory Accuracy'] = inventory['Inventory'] / inventory['Received']
+
+    # Shrinkage
+    inventory['Shrinkage'] = (inventory['Received'] - inventory['Inventory']) / inventory['Received']
+
+    # Carrying Cost of Inventory
+    carrying_costs = inventory['Inventory'].sum() * 0.2  # Example carrying cost rate
+    inventory['Carrying Cost'] = carrying_costs / inventory['Inventory'].sum()
+
+    # Inventory Turnover
+    inventory['Inventory Turnover'] = inventory['Sold'] / inventory['Inventory']
+
+    # Inventory to Sales Ratio
+    inventory['Inventory to Sales Ratio'] = inventory['Inventory'] / inventory['Sold']
+
+    return inventory
+
 def update_warehouse_inventory(production_data, sales_data, initial_inventory, store_orders, resources):
     # Initialize the inventory DataFrame with the necessary columns
     inventory = pd.DataFrame(columns=['Period', 'Code', 'Received', 'Sold', 'Inventory', 'Activity', 'Resource', 'Capacity', 'Days Required'])
@@ -57,7 +76,10 @@ def update_warehouse_inventory(production_data, sales_data, initial_inventory, s
     shipping = shipping[['Period', 'Code', 'Store', 'Day Delivery', 'Quantity', 'Sold', 'Activity', 'Resource', 'Capacity', 'Days Required']]
     shipping.dropna(subset=['Store', 'Day Delivery', 'Quantity'], inplace=True)
 
-    return receiving, picking_packing, shipping
+    # Calculate inventory KPIs
+    inventory = calculate_inventory_kpis(inventory)
+
+    return receiving, picking_packing, shipping, inventory
 
 def main():
     # Load production data from factory.py (simulated production plan)
@@ -81,7 +103,7 @@ def main():
     resources = pd.read_csv(resources_file, delimiter=';')
 
     # Update warehouse inventory and separate activities
-    receiving, picking_packing, shipping = update_warehouse_inventory(production_data, sales_data, initial_inventory, store_orders, resources)
+    receiving, picking_packing, shipping, inventory = update_warehouse_inventory(production_data, sales_data, initial_inventory, store_orders, resources)
 
     # Output results
     print("Receiving Data:")
@@ -90,11 +112,14 @@ def main():
     print(picking_packing)
     print("Shipping Data:")
     print(shipping)
+    print("Inventory KPIs:")
+    print(inventory[['Period', 'Code', 'Inventory Accuracy', 'Shrinkage', 'Carrying Cost', 'Inventory Turnover', 'Inventory to Sales Ratio']])
 
     # Save updated data to CSVs
     receiving.to_csv('receiving.csv', index=False)
     picking_packing.to_csv('picking_packing.csv', index=False)
     shipping.to_csv('shipping.csv', index=False)
+    inventory.to_csv('inventory_kpis.csv', index=False)
 
 if __name__ == "__main__":
     main()
