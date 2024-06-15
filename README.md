@@ -44,6 +44,26 @@ Run the warehouse script:
 
 python warehouse.py
 
+    KPI Definitions
+        Inventory Accuracy: Inventory / Received
+        
+        Shrinkage: (Received - Inventory) / Received
+        
+        Carrying Cost of Inventory: Total carrying costs as a percentage of overall inventory costs.
+        
+        Inventory Turnover: Sold / Inventory
+        
+        Inventory to Sales Ratio: Inventory / Sold
+        
+    Outputs
+        Receiving Data: Details on receiving activities, including the amount received, activity type, resource, capacity, and days required.
+        
+        Picking/Packing Data: Information on picking and packing activities, including the amount sold, activity type, resource, capacity, and days required.
+        
+        Shipping Data: Shipping details, including the store, day delivery, quantity, sold amount, activity type, resource, capacity, and days required.
+        
+        Inventory KPIs: Key performance indicators for inventory management, such as inventory accuracy, shrinkage, carrying cost, inventory turnover, and inventory to sales ratio.
+
 3. Delivery Module
 Ensure shipping.csv and trucks.csv are in the project directory.
 
